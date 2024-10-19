@@ -13,6 +13,8 @@ export default function App({ Component, pageProps }) {
             hljs.highlightAll();
         };
 
+        hljs.highlightAll();
+
         router.events.on("routeChangeComplete", handleRouteChange);
 
         return () => {
