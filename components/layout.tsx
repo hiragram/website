@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import Header from './header';
+import Header from 'hiragram/components/header';
 
 type Props = { children: ReactNode }
 

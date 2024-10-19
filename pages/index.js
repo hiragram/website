@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { client } from '../libs/client';
-import Layout from '/components/Layout';
-import { formattedDate } from '/utils/dateFormat';
+import { client } from 'hiragram/libs/client';
+import Layout from 'hiragram/components/Layout';
+import { formattedDate } from 'hiragram/utils/dateFormat';
 
 export default function Home({ posts }) {
   return (
