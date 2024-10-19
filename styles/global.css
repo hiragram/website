@@ -35,8 +35,19 @@ a {
   text-decoration: none;
 }
 
+header a {
+  color: initial;
+  text-decoration: none;
+}
+
 code {
   font-family: Menlo, Monaco, 'Courier New', monospace;
+  background-color: #e0e0e0; /* 背景色でコード部分を強調 */
+  color: #d63384; /* コード部分の文字色 */
+  padding: 2px 4px; /* 小さな余白でコード部分を目立たせる */
+  border-radius: 4px; /* 角を少し丸く */
+  font-size: 0.95em; /* 通常のテキストより少し小さめ */ 
+  font-weight: 600; /* 通常のテキストより少し太め */
 }
 
 /* ブラウザ幅が広いときのスタイル */
@@ -126,6 +137,41 @@ div.post-body div.iframely-embed {
   }
 }
 
-div.post-body code {
+div.post-body pre>code {
   margin: 40px auto;
+  font-weight: initial;
+}
+
+div.post-body a {
+  color: #555599;
+  text-decoration: underline;
+}
+
+.datetime {
+  font-family: Menlo, Monaco, 'Courier New', monospace;
+  margin-right: 20px;
+}
+
+header p img {
+  vertical-align: middle;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+header p span {
+  vertical-align: middle;
+}
+
+p.link-to-older-blog {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+h1 {
+  font-size: 1.4em;
+  margin-bottom: 0.5em;
+}
+
+ul.no-dot, ol.no-dot {
+  list-style-type: none;
 }

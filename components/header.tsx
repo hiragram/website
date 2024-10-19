@@ -4,7 +4,11 @@ const Header = () => {
     return (
         <header>
             <Link href="/">
-            hiragram
+            <p>
+                <img src="https://avatars.githubusercontent.com/u/3433324?v=4" alt="hiragram" width="32" height="32" />
+                <span>hiragram</span>
+            </p>
+            
             </Link>
         </header>
     );

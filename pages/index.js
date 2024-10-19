@@ -8,16 +8,18 @@ export default function Home({ posts }) {
     <Layout>
         <div>
             <h1>Posts</h1>
-            <ul>
+            <ul className="no-dot">
                 {posts.map((post) => (
                     <li key={post.id}>
                         <Link href={`/posts/${post.id}`}>
-                            <span>{formattedDate(post.publishedAt)}</span>
+                            <span className="datetime">{formattedDate(post.publishedAt)}</span>
                             {post.title}
                         </Link>
                     </li>
                 ))}
             </ul>
+
+            <p className="link-to-older-blog"><a target="_blank" href="https://hiragram.hatenablog.jp/archive">それ以前のブログ</a></p>
         </div>
     </Layout>
   );
