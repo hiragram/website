@@ -183,3 +183,24 @@ ul.no-dot, ol.no-dot {
 div.post-share {
   margin-bottom: 120px;
 }
+
+div.post-share span.x-share-button {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 100px;
+}
+
+div.post-share span.x-share-button span {
+  vertical-align: middle;
+}
+
+div.post-share span.x-share-button span.x-logo {
+  font-size: 1.6em;
+  margin-right: 10px;
+}
+
+div.post-share span.x-share-button span.x-label {
+  font-weight: bold;
+}
+

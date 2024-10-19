@@ -20,8 +20,7 @@ export default function PostId({ post }) {
                 <meta property="og:type" content="article" />
                 <meta property="og:url" content={currentUrl} />
                 <meta property="og:image" content="https://avatars.githubusercontent.com/u/3433324?v=4" />
-            </Head>
-            <Script src="https://platform.twitter.com/widgets.js" async></Script>
+            </Head>            
             <div>
                 <div className="post-header">
                     <h1 className="post-title">{post.title}</h1>
@@ -37,18 +36,15 @@ export default function PostId({ post }) {
 
                 <div className="post-share">
                     <p>
-                    <a 
-                        href="https://twitter.com/share?ref_src=twsrc%5Etfw" 
-                        className="twitter-share-button" 
-                        data-size="large" 
-                        data-text={post.title}
-                        data-url={currentUrl}
-                        data-via="hiragram" 
-                        data-related="hiragram" 
-                        data-show-count="false"
-                    >
-                        Tweet
-                    </a>
+                        <span className="x-share-button">
+                        <a 
+                            href={"https://x.com/intent/post?text=" + post.title + " " + currentUrl + " @hiragram"}
+                            target="_blank"
+                        >
+                            <span className="x-logo">𝕏</span>
+                            <span className="x-label">Post</span>
+                        </a>
+                        </span>
                     </p>
                 </div>
             </div>
