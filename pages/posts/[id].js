@@ -1,6 +1,6 @@
-import { client } from 'hiragram/libs/client';
-import Layout from 'hiragram/components/Layout';
-import { formattedDate } from 'hiragram/utils/dateFormat';
+import { client } from '@/libs/client';
+import Layout from '@/components/Layout';
+import { formattedDate } from '@/utils/dateFormat';
 
 export default function PostId({ post }) {
   return (
