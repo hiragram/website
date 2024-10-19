@@ -35,6 +35,10 @@ a {
   text-decoration: none;
 }
 
+code {
+  font-family: Menlo, Monaco, 'Courier New', monospace;
+}
+
 /* ブラウザ幅が広いときのスタイル */
 body {
   max-width: 800px;  /* 最大幅を設定 */
@@ -120,4 +124,8 @@ div.post-body div.iframely-embed {
   div.post-body div.iframely-embed {
     margin: 40px 12px;
   }
+}
+
+div.post-body code {
+  margin: 40px auto;
 }
