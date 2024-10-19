@@ -72,8 +72,12 @@ header {
   justify-content: flex-start; /* 左寄せにしたい場合はflex-start */
 }
 
-div.post-header {
-  margin-bottom: 40px;
+div.post-header hr {
+  border: none;
+  height: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #bbbbbb;
 }
 
 div.post-body > h1 {
@@ -124,7 +128,7 @@ div.post-body img {
 }
 
 div.post-body {
-  margin-bottom: 140px;
+  margin-bottom: 40px;
 }
 
 div.post-body div.iframely-embed {
@@ -174,4 +178,8 @@ h1 {
 
 ul.no-dot, ol.no-dot {
   list-style-type: none;
+}
+
+div.post-share {
+  margin-bottom: 120px;
 }

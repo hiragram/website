@@ -1,23 +1,59 @@
 import { client } from '@/libs/client';
 import Layout from '@/components/layout';
 import { formattedDate } from '@/utils/dateFormat';
+import { useRouter } from 'next/router';
+import { type } from 'os';
+import Head from 'next/head';
+import Script from 'next/script';
 
 export default function PostId({ post }) {
-  return (
-    <Layout>
-    <div>
-        <div className="post-header">
-            <h1 className="post-title">{post.title}</h1>
-            <p>{formattedDate(post.publishedAt)}</p>
-        </div>
-        <div className="post-body" 
-            dangerouslySetInnerHTML={{
-            __html: `${post.body}`,
-            }}
-        />
-    </div>
-    </Layout>
-  );
+    const router = useRouter();
+    const currentUrl = typeof window !== 'undefined' ? `${window.location.origin}${router.asPath}` : '';
+    const description = post.body.substring(0, 20);
+    return (
+        <Layout>
+            <Head>
+                <title>{post.title}</title>
+                <meta name="description" content={description} />
+                <meta property="og:title" content={post.title} />
+                <meta property="og:description" content={description} />
+                <meta property="og:type" content="article" />
+                <meta property="og:url" content={currentUrl} />
+                <meta property="og:image" content="https://avatars.githubusercontent.com/u/3433324?v=4" />
+            </Head>
+            <Script src="https://platform.twitter.com/widgets.js" async></Script>
+            <div>
+                <div className="post-header">
+                    <h1 className="post-title">{post.title}</h1>
+                    <p className="datetime">{formattedDate(post.publishedAt)}</p>
+                    <hr />
+                </div>
+                
+                <div className="post-body" 
+                    dangerouslySetInnerHTML={{
+                    __html: `${post.body}`,
+                    }}
+                />
+
+                <div className="post-share">
+                    <p>
+                    <a 
+                        href="https://twitter.com/share?ref_src=twsrc%5Etfw" 
+                        class="twitter-share-button" 
+                        data-size="large" 
+                        data-text={post.title}
+                        data-url={currentUrl}
+                        data-via="hiragram" 
+                        data-related="hiragram" 
+                        data-show-count="false"
+                    >
+                        Tweet
+                    </a>
+                    </p>
+                </div>
+            </div>
+        </Layout>
+    );
 }
 
 export const getStaticPaths = async () => {
