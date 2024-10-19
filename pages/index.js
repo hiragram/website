@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { client } from '@/libs/client';
-import Layout from '@/components/Layout';
+import Layout from '@/components/layout';
 import { formattedDate } from '@/utils/dateFormat';
 
 export default function Home({ posts }) {
