@@ -8,8 +8,8 @@ import Script from 'next/script';
 
 export default function PostId({ post }) {
     const router = useRouter();
-    const currentUrl = typeof window !== 'undefined' ? `${window.location.origin}${router.asPath}` : '';
-    const description = post.body.substring(0, 20);
+    const description = post.body.substring(0, 50) + "…";
+    const currentUrl = "https://hiragram.app" + router.asPath;
     return (
         <Layout>
             <Head>
@@ -39,7 +39,7 @@ export default function PostId({ post }) {
                     <p>
                     <a 
                         href="https://twitter.com/share?ref_src=twsrc%5Etfw" 
-                        class="twitter-share-button" 
+                        className="twitter-share-button" 
                         data-size="large" 
                         data-text={post.title}
                         data-url={currentUrl}
