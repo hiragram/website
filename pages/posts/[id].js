@@ -10,6 +10,18 @@ export default function PostId({ post }) {
     const router = useRouter();
     const description = post.body.substring(0, 50) + "…";
     const currentUrl = "https://hiragram.app" + router.asPath;
+
+    useEffect(() => {
+        // scriptを読み込み
+        const script = document.createElement('script');
+        script.src = "//cdn.iframe.ly/embed.js";
+        document.body.appendChild(script);
+        // アンマウント時に一応scriptタグを消しておく
+        return () => {
+          document.body.removeChild(script);
+        }
+     }, [])
+
     return (
         <Layout>
             <Head>
