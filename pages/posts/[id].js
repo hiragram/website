@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { type } from 'os';
 import Head from 'next/head';
 import Script from 'next/script';
+import { useEffect } from 'react';
 
 export default function PostId({ post }) {
     const router = useRouter();
