@@ -204,3 +204,19 @@ div.post-share span.x-share-button span.x-label {
   font-weight: bold;
 }
 
+div.post-container {
+  display: flex;
+  align-items: first baseline;
+}
+
+div.post-container p.datetime {
+  width: 100px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+div.post-container p.post-title {
+  flex-grow: 1;
+  word-wrap: break-word;
+  max-width: 80%;
+}

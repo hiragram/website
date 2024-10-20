@@ -6,18 +6,18 @@ import { formattedDate } from '@/utils/dateFormat';
 export default function Home({ posts }) {
   return (
     <Layout>
-        <div>
+        <div className="posts-container">
             <h1>Posts</h1>
-            <ul className="no-dot">
-                {posts.map((post) => (
-                    <li key={post.id}>
-                        <Link href={`/posts/${post.id}`}>
-                            <span className="datetime">{formattedDate(post.publishedAt)}</span>
-                            {post.title}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+            {posts.map((post) => (
+                
+                <Link href={`/posts/${post.id}`}>
+                    <div className="post-container" key={post.id}>
+                        <p className="datetime">{formattedDate(post.publishedAt)}</p>
+                        <p className="post-title">{post.title}</p>
+                    </div>
+                </Link>
+                
+            ))}
 
             <p className="link-to-older-blog"><a target="_blank" href="https://hiragram.hatenablog.jp/archive">それ以前のブログ</a></p>
         </div>
