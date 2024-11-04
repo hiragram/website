@@ -220,3 +220,10 @@ div.post-container p.post-title {
   word-wrap: break-word;
   max-width: 80%;
 }
+
+span.accessory-icon {
+  font-size: 0.85em;
+  vertical-align: baseline;
+  color: #555555;
+  margin-left: 10px;
+}
