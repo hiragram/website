@@ -12,7 +12,7 @@ const Layout = ({ children }: Props) => {
             <Analytics />
             <Head>
                 <link rel="icon" href="/favicon.ico" />
-            </Head>
+            </Head> 
             <Header />
             <main>{children}</main>
         </div>

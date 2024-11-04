@@ -14,12 +14,14 @@
     "microcms-js-sdk": "^3.1.2",
     "next": "14.2.15",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "rss": "^1.2.2"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/rss": "^0.0.32",
     "typescript": "^5"
   }
 }

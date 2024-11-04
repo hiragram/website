@@ -7,10 +7,10 @@ export default function Home({ posts }) {
   return (
     <Layout>
         <div className="posts-container">
-            <h1>Posts</h1>
+            <h1>Posts <a href="/feed"><span className="material-symbols-outlined accessory-icon">rss_feed</span></a></h1>
             {posts.map((post) => (
                 
-                <Link href={`/posts/${post.id}`}>
+                <Link key={`${post.id}`} href={`/posts/${post.id}`}>
                     <div className="post-container" key={post.id}>
                         <p className="datetime">{formattedDate(post.publishedAt)}</p>
                         <p className="post-title">{post.title}</p>
