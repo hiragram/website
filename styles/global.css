@@ -82,11 +82,13 @@ div.post-header hr {
 
 div.post-body > h1 {
   font-size: 1.7em;
+  margin-top: 1.4em;
   margin-bottom: 0.4em;
 }
 
 div.post-body > h2 {
   font-size: 1.4em;
+  margin-top: 1.2em;
   margin-bottom: 0.2em;
 }
 
@@ -226,4 +228,17 @@ span.accessory-icon {
   vertical-align: baseline;
   color: #555555;
   margin-left: 10px;
+}
+
+blockquote {
+  margin: 1.5em 10px; /* 上下に余白を取り、左右に少し余白を追加 */
+  padding: 0.1em 18px; /* 内側の余白を設定 */
+  border-left: 5px solid #ccc; /* 左側に装飾の線を追加 */
+  background-color: #f9f9f9; /* 背景を薄い灰色に設定 */
+  font-style: italic; /* 斜体にすることで引用らしさを演出 */
+  color: #070707; /* テキストの色を少し薄くする */
+}
+
+blockquote p {
+  margin: 0; /* 内部の段落の余白をリセット */
 }
