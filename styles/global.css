@@ -72,6 +72,11 @@ header {
   justify-content: flex-start; /* 左寄せにしたい場合はflex-start */
 }
 
+hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
 div.post-header hr {
   border: none;
   height: 1px;
