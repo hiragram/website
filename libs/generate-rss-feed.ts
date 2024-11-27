@@ -20,11 +20,13 @@ const generateFeed = async (): Promise<string> => {
             limit: 100,
           },
       });
-    data.contents.forEach((post: any) => {
+    data.contents
+    .sort((a: any, b: any) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .forEach((post: any) => {
         feed.item({
             title: post.title,
             description: post.body,
-            date: new Date(post.createdAt),
+            date: new Date(post.publishedAt),
             url: `https://hiragram.app/posts/${post.id}`,
         })
     });
