@@ -247,3 +247,10 @@ blockquote {
 blockquote p {
   margin: 0; /* 内部の段落の余白をリセット */
 }
+
+span.feed_link {
+  font-weight: lighter;
+  font-size: 0.55em;
+  text-decoration: underline; 
+  color: #555555;
+}
