@@ -10,7 +10,7 @@ export default function Home({ posts }) {
     return (
         <Layout>
             <div className="posts-container">
-                <h1>Posts <a href="/feed"><span className="feed_link">RSS</span></a></h1>
+                <h1>Posts <a href="/feed"><span className="material-symbols-outlined accessory-icon">rss_feed</span></a></h1>
                 {sortedPosts.map((post) => (
                     <Link key={`${post.id}`} href={`/posts/${post.id}`}>
                         <div className="post-container" key={post.id}>
