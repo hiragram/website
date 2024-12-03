@@ -72,7 +72,7 @@ header {
   justify-content: flex-start; /* 左寄せにしたい場合はflex-start */
 }
 
-hr {
+hr.post-bottom {
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -214,15 +214,25 @@ div.post-share span.x-share-button span.x-label {
 div.post-container {
   display: flex;
   align-items: first baseline;
+  margin-bottom: 20px;
+}
+
+div.post-container hr {
+  height: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #000000;
 }
 
 div.post-container p.datetime {
-  width: 100px;
+  width: 80px;
   flex-shrink: 0;
   white-space: nowrap;
+  font-size: 0.8em;
+  color: #888888;
 }
 
-div.post-container p.post-title {
+div.post-container > p.post-title {
   flex-grow: 1;
   word-wrap: break-word;
   max-width: 80%;
@@ -233,6 +243,10 @@ span.accessory-icon {
   vertical-align: baseline;
   color: #555555;
   margin-left: 10px;
+}
+
+.entry {
+  margin-bottom: 20px;
 }
 
 blockquote {
@@ -247,3 +261,31 @@ blockquote {
 blockquote p {
   margin: 0; /* 内部の段落の余白をリセット */
 }
+
+/*******************************/
+/* タグ色
+/*******************************/
+.label.tag-仕事 {
+  background-color: #e7acc9;
+}
+
+.label.tag-技術 {
+  background-color: #a8c9f7;
+}
+
+.label.tag-趣味 {
+  background-color: #61da87;
+}
+/*******************************/
+
+.label {
+  background-color: #aaaaaa;
+  color: white;
+  font-size: 0.7em;
+  font-weight: bold;
+  padding: 2px 8px;
+  margin-right: 8px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+

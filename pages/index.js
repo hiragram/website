@@ -15,7 +15,14 @@ export default function Home({ posts }) {
                     <Link key={`${post.id}`} href={`/posts/${post.id}`}>
                         <div className="post-container" key={post.id}>
                             <p className="datetime">{formattedDate(post.publishedAt)}</p>
-                            <p className="post-title">{post.title}</p>
+                            <div className="post-metadata-container">    
+                                <p className="post-title">{post.title}</p>
+                                <p className="post-tag-container">
+                                    {post.tags.map((tag) => (
+                                        <span className={`tag-${tag} label`} key={tag}>{tag}</span>
+                                    ))}
+                                </p>
+                            </div>
                         </div>
                     </Link>
                 ))}
