@@ -67,7 +67,7 @@ export default function PostId({ post }) {
             </Head>
                 <div className="post-header">
                     <h1 className="post-title">{post.title}</h1>
-                    <span id="permalink">{`https://hiragram.app/posts/${post.id}`}</span>
+                    <span hidden id="permalink">{`https://hiragram.app/posts/${post.id}`}</span>
                     <p className="post-tag-container">
                         {post.tags.map((tag) => (
                             <span className={`tag-${tag} label`} key={tag}>{tag}</span>
