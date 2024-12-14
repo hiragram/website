@@ -188,6 +188,9 @@ ul.no-dot, ol.no-dot {
 }
 
 div.post-share {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   margin-bottom: 120px;
 }
 
@@ -284,6 +287,10 @@ blockquote p {
 
 .label.tag-Swift {
   background-color: #f48a58;
+}
+
+.label.tag-TIL {
+  background-color: #833cda;
 }
 /*******************************/
 
