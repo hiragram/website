@@ -37,6 +37,11 @@ export default function PostId({ post }) {
             <div>
                 <div className="post-header">
                     <h1 className="post-title">{post.title}</h1>
+                    <p className="post-tag-container">
+                        {post.tags.map((tag) => (
+                            <span className={`tag-${tag} label`} key={tag}>{tag}</span>
+                        ))}
+                    </p>
                     <p className="datetime">{formattedDate(post.publishedAt)}</p>
                     <hr />
                 </div>
