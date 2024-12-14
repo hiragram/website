@@ -55,7 +55,7 @@ export default function PostId({ post }) {
                     // ******************************************************************* //
                 `}
             </Script>
-            <Script type='text/javascript' src="http://b.hatena.ne.jp/js/bookmark_blogparts.js" strategy="afterInteractive" />
+            <Script type='text/javascript' src="https://b.hatena.ne.jp/js/bookmark_blogparts.js" strategy="afterInteractive" />
             <Head>
                 <title>{post.title}</title>
                 <meta name="description" content={description} />
