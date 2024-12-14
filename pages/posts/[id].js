@@ -13,6 +13,8 @@ export default function PostId({ post }) {
     const currentUrl = "https://hiragram.app" + router.asPath;
 
     useEffect(() => {
+        HBBlogParts.start && HBBlogParts.start();
+
         // scriptを読み込み
         const script = document.createElement('script');
         script.src = "//cdn.iframe.ly/embed.js";
