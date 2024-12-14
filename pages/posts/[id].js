@@ -30,11 +30,6 @@ export default function PostId({ post }) {
             <Script type="text/javascript" strategy='beforeInteractive'>
                 {`
                     window.HBBlogParts = window.HBBlogParts || {};
-                    HBBlogParts.commentInsertSelector = [ '#post-comment' ];
-                    HBBlogParts.permalinkSelector = '#permalink';
-                    HBBlogParts.permalinkAttribute = 'href';
-                    HBBlogParts.permalinkPathRegexp = /\\/posts\\//;
-                    HBBlogParts.insertPosition = "before";
                     
                     // HBBlogParts.debug = true;
 
@@ -55,6 +50,15 @@ export default function PostId({ post }) {
                     HBBlogParts.STATIC_DOMAIN = 'https://b.st-hatena.com';
                     HBBlogParts.ICON_DOMAIN = 'https://cdn.profile-image.st-hatena.com';
                     // ******************************************************************* //
+
+                    HBBlogParts.commentInsertSelector = [ '#post-comment' ];
+                    HBBlogParts.permalinkSelector = '#permalink';
+                    HBBlogParts.permalinkAttribute = 'href';
+                    HBBlogParts.permalinkPathRegexp = /\\/posts\\//;
+                    HBBlogParts.insertPosition = "before";
+                    HBBlogParts.permalinkURI = 'https://hiragram.app/posts/${post.id}';
+                    // HBBlogParts.permalinkCommentLimit = 10;
+                    // HBBlogParts.useUserCSS = true;
                 `}
             </Script>
             <Script type='text/javascript' src="https://b.hatena.ne.jp/js/bookmark_blogparts.js" strategy="afterInteractive" />

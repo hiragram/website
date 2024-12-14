@@ -85,6 +85,10 @@ div.post-header hr {
   background-color: #bbbbbb;
 }
 
+div.post-body {
+  line-height: 1.6em;
+}
+
 div.post-body > h1 {
   font-size: 1.7em;
   margin-top: 1.4em;
@@ -315,4 +319,164 @@ div.post-header p.post-tag-container {
 
 #post-comment {
   margin-bottom: 120px;
+}
+
+/* 全体のスタイル */
+.hatena-bookmark-container {
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  /* background-color: #f9f9f9; */
+  padding: 16px;
+  max-width: 800px; /* 最大幅を800pxに設定 */
+  margin: 0 auto;
+}
+
+/* タイトル部分 */
+.hatena-bookmark-title {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.hatena-bookmark-comment-header a {
+  text-decoration: none;
+  color: #333;
+}
+
+.hatena-bookmark-users {
+  color: #555;
+  font-size: 0.8em;
+  margin-left: 8px;
+}
+
+/* コメントリスト */
+#hatena-bookmark-list-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hatena-bookmark-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding-top: 12px;
+  padding-bottom: 4px;
+}
+
+.hatena-bookmark-item:last-child {
+  border-bottom: none;
+}
+
+/* コメント追加ボタン */
+.hatena-bookmark-addcomment-container {
+  margin-bottom: 12px;
+}
+
+.hatena-bookmark-addcomment a {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #007acc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.hatena-bookmark-addcomment a:hover {
+  background-color: #005fa3;
+}
+
+/* ユーザー情報 */
+.hatena-bookmark-user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.hatena-bookmark-profile-image {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.hatena-bookmark-username {
+  font-weight: bold;
+  /* color: #007acc; */
+  text-decoration: none;
+}
+
+.hatena-bookmark-username:hover {
+  text-decoration: underline;
+}
+
+/* タグとコメント */
+.hatena-bookmark-tags {
+  display: none;
+  margin-right: 8px;
+}
+
+.hatena-bookmark-user-tag {
+  background-color: #e0f7fa;
+  color: #007acc;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  text-decoration: none;
+}
+
+.hatena-bookmark-user-tag:hover {
+  background-color: #b2ebf2;
+}
+
+.hatena-bookmark-comment {
+  display: block;
+  color: #555;
+  margin-top: 4px;
+  margin-bottom: 0;
+  line-height: 1.5em;
+  font-size: 0.9em;
+}
+
+/* タイムスタンプ */
+.hatena-bookmark-timestamp {
+  font-size: 0.7em;
+  color: #888;
+}
+
+/* スター機能 */
+.hatena-bookmark-star {
+  display: none !important;
+  margin-top: 4px;
+  display: flex;
+  gap: 8px;
+}
+
+.hatena-star-comment-button,
+.hatena-star-add-button {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* フッター */
+.hatena-bookmark-footer {
+  margin-top: 16px;
+  text-align: right;
+}
+
+.hatena-bookmark-showall-comment .hatena-bookmark-span-button {
+  cursor: pointer;
+  color: #007acc;
+  text-decoration: underline;
+  font-size: 0.9em;
+}
+
+.hatena-bookmark-entrypage-link a {
+  text-decoration: none;
+  color: #007acc;
+  font-weight: bold;
+}
+
+.hatena-bookmark-entrypage-link a:hover {
+  text-decoration: underline;
 }
