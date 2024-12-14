@@ -25,6 +25,37 @@ export default function PostId({ post }) {
 
     return (
         <Layout>
+            <Script type="text/javascript" strategy='beforeInteractive'>
+                {`
+                    window.HBBlogParts = window.HBBlogParts || {};
+                    HBBlogParts.commentInsertSelector = [ '#post-comment' ];
+                    HBBlogParts.permalinkSelector = '#permalink';
+                    HBBlogParts.permalinkAttribute = 'href';
+                    HBBlogParts.permalinkPathRegexp = /\\/posts\\//;
+                    HBBlogParts.insertPosition = "before";
+                    
+                    // HBBlogParts.debug = true;
+
+                    // ******************************************************************* //
+                    // copied from bookmark_blogparts.js
+                    // ******************************************************************* //
+                    HBBlogParts._alreadyShown = {};
+                    HBBlogParts.shownPermalinks = {};
+                    HBBlogParts.catchCount = 0;
+
+                    // Settings
+                    HBBlogParts.Design = null;
+                    HBBlogParts.useUserCSS = false;
+                    HBBlogParts.listPageCommentLimit = 3;
+                    HBBlogParts.permalinkCommentLimit = 5;
+
+                    HBBlogParts.API_DOMAIN = 'https://b.hatena.ne.jp';
+                    HBBlogParts.STATIC_DOMAIN = 'https://b.st-hatena.com';
+                    HBBlogParts.ICON_DOMAIN = 'https://cdn.profile-image.st-hatena.com';
+                    // ******************************************************************* //
+                `}
+            </Script>
+            <Script type='text/javascript' src="http://b.hatena.ne.jp/js/bookmark_blogparts.js" strategy="afterInteractive" />
             <Head>
                 <title>{post.title}</title>
                 <meta name="description" content={description} />
@@ -33,10 +64,10 @@ export default function PostId({ post }) {
                 <meta property="og:type" content="article" />
                 <meta property="og:url" content={currentUrl} />
                 <meta property="og:image" content="https://avatars.githubusercontent.com/u/3433324?v=4" />
-            </Head>            
-            <div>
+            </Head>
                 <div className="post-header">
                     <h1 className="post-title">{post.title}</h1>
+                    <span id="permalink">{`https://hiragram.app/posts/${post.id}`}</span>
                     <p className="post-tag-container">
                         {post.tags.map((tag) => (
                             <span className={`tag-${tag} label`} key={tag}>{tag}</span>
@@ -53,16 +84,12 @@ export default function PostId({ post }) {
                 />
 
                 <div className="post-share">
-                    <div
-                        dangerouslySetInnerHTML={{
-                            __html: `
-                            <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="vertical-normal" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-                                <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-                            </a>
-                            <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
-                            `,
-                        }}
-                    />
+                    <div className="hatena-bookmark-button">
+                        <Script src="https://b.st-hatena.com/js/bookmark_button.js" type="text/javascript" charset="utf-8" async="async" />
+                        <a href="https://b.hatena.ne.jp/entry/" className="hatena-bookmark-button" data-hatena-bookmark-layout="vertical-normal" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+                            <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" />
+                        </a>
+                    </div>
                     <p>
                         <span className="x-share-button">
                         <a 
@@ -75,7 +102,7 @@ export default function PostId({ post }) {
                         </span>
                     </p>
                 </div>
-            </div>
+                <div id="post-comment" />
         </Layout>
     );
 }

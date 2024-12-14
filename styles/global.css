@@ -191,7 +191,7 @@ div.post-share {
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-bottom: 120px;
+  margin-bottom: 60px;
 }
 
 div.post-share span.x-share-button {
@@ -311,4 +311,8 @@ ul, ol {
 
 div.post-header p.post-tag-container {
   margin-bottom: 20px;
+}
+
+#post-comment {
+  margin-bottom: 120px;
 }
