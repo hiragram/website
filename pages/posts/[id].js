@@ -57,8 +57,8 @@ export default function PostId({ post }) {
                     HBBlogParts.permalinkPathRegexp = /\\/posts\\//;
                     HBBlogParts.insertPosition = "before";
                     HBBlogParts.permalinkURI = 'https://hiragram.app/posts/${post.id}';
-                    // HBBlogParts.permalinkCommentLimit = 10;
-                    // HBBlogParts.useUserCSS = true;
+                    HBBlogParts.permalinkCommentLimit = 10;
+                    HBBlogParts.useUserCSS = true;
                 `}
             </Script>
             <Script type='text/javascript' src="https://b.hatena.ne.jp/js/bookmark_blogparts.js" strategy="afterInteractive" />
