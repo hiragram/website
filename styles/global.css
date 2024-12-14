@@ -276,6 +276,15 @@ blockquote p {
 .label.tag-趣味 {
   background-color: #61da87;
 }
+
+.label.tag-電子工作 {
+  background-color: #fcf462;
+  color: #888888;
+}
+
+.label.tag-Swift {
+  background-color: #f48a58;
+}
 /*******************************/
 
 .label {
@@ -289,3 +298,10 @@ blockquote p {
   white-space: nowrap;
 }
 
+ul, ol {
+    line-height: 1.8; /* 行間を広げる */
+}
+
+div.post-header p.post-tag-container {
+  margin-bottom: 20px;
+}
