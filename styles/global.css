@@ -245,6 +245,10 @@ div.post-container > p.post-title {
   max-width: 80%;
 }
 
+div.post-body {
+  overflow-wrap: break-word;
+}
+
 span.accessory-icon {
   font-size: 0.85em;
   vertical-align: baseline;
