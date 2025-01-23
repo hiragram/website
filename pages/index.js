@@ -64,7 +64,7 @@ export default function Home({ posts }) {
                                 className="clear-tags-button"
                                 onClick={clearTags}
                             >
-                                クリア
+                                Clear filter
                             </button>
                         </div>
                     )}
