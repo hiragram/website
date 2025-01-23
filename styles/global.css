@@ -309,12 +309,24 @@ blockquote p {
 
 .selected-tags-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row-reverse;
   align-items: center;
+  justify-content: flex-end;
   margin-bottom: 12px;
   padding: 12px;
   background: #f8f8f8;
   border-radius: 8px;
+  gap: 8px;
+}
+
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.clear-tags-button {
+  margin-left: 8px;
 }
 
 .selected-tags {
