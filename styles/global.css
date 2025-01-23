@@ -136,6 +136,9 @@ div.post-body p {
 div.post-body img {
   display: block;
   margin: 0 auto;
+  max-width: 90%;
+  height: auto;
+  box-shadow: 0 2px 6px #00000020;
 }
 
 div.post-body {
