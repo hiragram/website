@@ -342,7 +342,7 @@ blockquote p {
   color: #333;
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 6px 12px;
+  padding: 4px 8px;
   font-size: 0.7em;
   cursor: pointer;
   transition: all 0.2s ease;
