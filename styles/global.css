@@ -317,6 +317,14 @@ blockquote p {
   background: #f8f8f8;
   border-radius: 8px;
   gap: 8px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.selected-tags-container.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .selected-tags {
@@ -358,6 +366,10 @@ blockquote p {
   font-size: 0.7em;
   cursor: pointer;
   transition: all 0.2s ease;
+  line-height: 1.5;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .tag-filter:hover {
