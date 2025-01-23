@@ -302,10 +302,90 @@ blockquote p {
 }
 /*******************************/
 
+/* タグフィルタスタイル */
+.tag-filter-container {
+  margin: 20px 0;
+}
+
+.selected-tags-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+  padding: 12px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.selected-tags-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.clear-tags-button {
+  margin-left: 8px;
+}
+
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.clear-tags-button {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.7em;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.clear-tags-button:hover {
+  background: #f0f0f0;
+}
+
+.tag-filter {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.7em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.5;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tag-filter:hover {
+  background-color: #e0e0e0;
+}
+
+.tag-filter.active {
+  background-color: #666;
+  color: white;
+  border-color: #666;
+}
+
 .label {
   background-color: #aaaaaa;
   color: white;
-  font-size: 0.7em;
+  font-size: 0.6em;
   font-weight: bold;
   padding: 2px 8px;
   margin-right: 8px;
