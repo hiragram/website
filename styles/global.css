@@ -353,9 +353,9 @@ blockquote p {
 }
 
 .tag-filter.active {
-  background-color: #333;
+  background-color: #666;
   color: white;
-  border-color: #333;
+  border-color: #666;
 }
 
 .label {
