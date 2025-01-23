@@ -35,7 +35,13 @@ export default function Home({ posts }) {
                         <button
                             key={tag}
                             className={`tag-filter ${selectedTag === tag ? 'active' : ''}`}
-                            onClick={() => setSelectedTag(tag)}
+                            onClick={() => {
+                            setSelectedTag(tag);
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                        }}
                         >
                             {tag}
                         </button>
