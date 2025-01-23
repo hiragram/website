@@ -5,7 +5,7 @@ import Layout from '@/components/layout';
 import { formattedDate } from '@/utils/dateFormat';
 
 export default function Home({ posts }) {
-    const [selectedTag, setSelectedTag] = useState(null);
+    const [selectedTags, setSelectedTags] = useState([]);
     
     // Sort posts by publishedAt date in descending order
     const sortedPosts = posts.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
@@ -13,10 +13,32 @@ export default function Home({ posts }) {
     // Get all unique tags
     const allTags = [...new Set(posts.flatMap(post => post.tags))];
     
-    // Filter posts by selected tag
-    const filteredPosts = selectedTag 
-        ? sortedPosts.filter(post => post.tags.includes(selectedTag))
+    // Filter posts by selected tags
+    const filteredPosts = selectedTags.length > 0
+        ? sortedPosts.filter(post => 
+            selectedTags.every(tag => post.tags.includes(tag))
+          )
         : sortedPosts;
+
+    const handleTagClick = (tag) => {
+        setSelectedTags(prev => 
+            prev.includes(tag)
+                ? prev.filter(t => t !== tag)
+                : [...prev, tag]
+        );
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+    const clearTags = () => {
+        setSelectedTags([]);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 
     return (
         <Layout>
@@ -25,27 +47,27 @@ export default function Home({ posts }) {
                 
                 {/* Tag filter section */}
                 <div className="tag-filter-container">
-                    <button 
-                        className={`tag-filter ${!selectedTag ? 'active' : ''}`}
-                        onClick={() => setSelectedTag(null)}
-                    >
-                        すべて
-                    </button>
-                    {allTags.map(tag => (
-                        <button
-                            key={tag}
-                            className={`tag-filter ${selectedTag === tag ? 'active' : ''}`}
-                            onClick={() => {
-                            setSelectedTag(tag);
-                            window.scrollTo({
-                                top: 0,
-                                behavior: 'smooth'
-                            });
-                        }}
-                        >
-                            {tag}
-                        </button>
-                    ))}
+                    {selectedTags.length > 0 && (
+                        <div className="selected-tags-container">
+                            <div className="selected-tags">
+                                {selectedTags.map(tag => (
+                                    <button
+                                        key={tag}
+                                        className="tag-filter active"
+                                        onClick={() => handleTagClick(tag)}
+                                    >
+                                        {tag} ×
+                                    </button>
+                                ))}
+                            </div>
+                            <button 
+                                className="clear-tags-button"
+                                onClick={clearTags}
+                            >
+                                クリア
+                            </button>
+                        </div>
+                    )}
                 </div>
                 {filteredPosts.map((post) => (
                     <div className="post-container" key={post.id}>
@@ -59,7 +81,7 @@ export default function Home({ posts }) {
                                     <span 
                                         className={`tag-${tag} label clickable-tag`} 
                                         key={tag}
-                                        onClick={() => setSelectedTag(tag)}
+                                        onClick={() => handleTagClick(tag)}
                                     >
                                         {tag}
                                     </span>
