@@ -42,19 +42,25 @@ export default function Home({ posts }) {
                     ))}
                 </div>
                 {filteredPosts.map((post) => (
-                    <Link key={`${post.id}`} href={`/posts/${post.id}`}>
-                        <div className="post-container" key={post.id}>
-                            <p className="datetime">{formattedDate(post.publishedAt)}</p>
-                            <div className="post-metadata-container">    
+                    <div className="post-container" key={post.id}>
+                        <p className="datetime">{formattedDate(post.publishedAt)}</p>
+                        <div className="post-metadata-container">
+                            <Link key={`${post.id}`} href={`/posts/${post.id}`}>
                                 <p className="post-title">{post.title}</p>
-                                <p className="post-tag-container">
-                                    {post.tags.map((tag) => (
-                                        <span className={`tag-${tag} label`} key={tag}>{tag}</span>
-                                    ))}
-                                </p>
-                            </div>
+                            </Link>
+                            <p className="post-tag-container">
+                                {post.tags.map((tag) => (
+                                    <span 
+                                        className={`tag-${tag} label clickable-tag`} 
+                                        key={tag}
+                                        onClick={() => setSelectedTag(tag)}
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </p>
                         </div>
-                    </Link>
+                    </div>
                 ))}
 
                 <p className="link-to-older-blog"><a target="_blank" href="https://hiragram.hatenablog.jp/archive">それ以前のブログ</a></p>
