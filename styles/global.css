@@ -327,7 +327,7 @@ blockquote p {
   background: none;
   border: none;
   color: #666;
-  font-size: 0.8em;
+  font-size: 0.7em;
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 4px;
@@ -343,7 +343,7 @@ blockquote p {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 6px 12px;
-  font-size: 0.8em;
+  font-size: 0.7em;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -361,7 +361,7 @@ blockquote p {
 .label {
   background-color: #aaaaaa;
   color: white;
-  font-size: 0.7em;
+  font-size: 0.6em;
   font-weight: bold;
   padding: 2px 8px;
   margin-right: 8px;
