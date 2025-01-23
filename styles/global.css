@@ -302,6 +302,35 @@ blockquote p {
 }
 /*******************************/
 
+/* タグフィルタスタイル */
+.tag-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.tag-filter {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-filter:hover {
+  background-color: #e0e0e0;
+}
+
+.tag-filter.active {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+}
+
 .label {
   background-color: #aaaaaa;
   color: white;
