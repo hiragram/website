@@ -48,7 +48,7 @@ export default function Home({ posts }) {
                 {/* Tag filter section */}
                 <div className="tag-filter-container">
                     {selectedTags.length > 0 && (
-                        <div className="selected-tags-container">
+                        <div className={`selected-tags-container ${selectedTags.length > 0 ? 'visible' : ''}`}>
                             <div className="selected-tags">
                                 {selectedTags.map(tag => (
                                     <button
