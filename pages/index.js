@@ -81,7 +81,11 @@ export default function Home({ posts }) {
                                     <span 
                                         className={`tag-${tag} label clickable-tag`} 
                                         key={tag}
-                                        onClick={() => handleTagClick(tag)}
+                                        onClick={() => {
+                                            if (!selectedTags.includes(tag)) {
+                                                handleTagClick(tag);
+                                            }
+                                        }}
                                     >
                                         {tag}
                                     </span>
