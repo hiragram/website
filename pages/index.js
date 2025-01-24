@@ -104,11 +104,11 @@ export default function Home({ posts }) {
 export const getStaticProps = async () => {
     let allPosts = [];
     let offset = 0;
-    const limit = 5;
+    const limit = 100;
     
     while (true) {
         const data = await client.get({
-            endpoint: "posts",
+            endpoint: "posts", 
             queries: { limit, offset }
         });
         
