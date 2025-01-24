@@ -102,11 +102,28 @@ export default function Home({ posts }) {
 }
 
 export const getStaticProps = async () => {
-    const data = await client.get({ endpoint: "posts" });
+    let allPosts = [];
+    let offset = 0;
+    const limit = 100;
+    
+    while (true) {
+        const data = await client.get({
+            endpoint: "posts", 
+            queries: { limit, offset }
+        });
+        
+        allPosts = [...allPosts, ...data.contents];
+        
+        if (data.contents.length < limit) {
+            break;
+        }
+        
+        offset += limit;
+    }
 
     return {
         props: {
-            posts: data.contents,
+            posts: allPosts,
         },
     };
 };
