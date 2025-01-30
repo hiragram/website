@@ -303,6 +303,23 @@ blockquote p {
 .label.tag-TIL {
   background-color: #833cda;
 }
+
+.label.tag-私生活 {
+  background-color: #1ca230;
+}
+
+.label.tag-AI {
+  background-color: #5875f4;
+}
+
+.label.tag-Cline {
+  background-color: #36795a;
+}
+
+.label.tag-Flutter {
+  background-color: #237eba;
+}
+
 /*******************************/
 
 /* タグフィルタスタイル */
