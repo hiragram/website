@@ -114,9 +114,26 @@ export default function PostId({ post }) {
 }
 
 export const getStaticPaths = async () => {
-    const data = await client.get({ endpoint: "posts" });
+    let allPosts = [];
+    let offset = 0;
+    const limit = 100;
     
-    const paths = data.contents.map((content) => `/posts/${content.id}`);
+    while (true) {
+        const data = await client.get({
+            endpoint: "posts",
+            queries: { limit, offset }
+        });
+        
+        allPosts = [...allPosts, ...data.contents];
+        
+        if (data.contents.length < limit) {
+            break;
+        }
+        
+        offset += limit;
+    }
+    
+    const paths = allPosts.map((content) => `/posts/${content.id}`);
     return { paths, fallback: false };
 }
 
