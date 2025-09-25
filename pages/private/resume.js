@@ -6,6 +6,7 @@ import { type } from 'os';
 import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect } from 'react';
+import styles from '@/styles/resume.module.css';
 
 export default function Resume({ resume }) {
     useEffect(() => {
@@ -21,12 +22,12 @@ export default function Resume({ resume }) {
 
     return (
         <Layout>
-            <div>
+            <div className={styles.container}>
                 <h1>職務経歴書</h1>
                 <div>
                     <p>最終更新: {formattedDate(resume.updatedAt)}</p>
                 </div>
-                <div className="post-body" 
+                <div className="post-body"
                     dangerouslySetInnerHTML={{
                     __html: `${resume.body}`,
                     }}
