@@ -3,3 +3,15 @@
 .container hr {
   margin: 2rem 0;
 }
+
+.container h3 {
+  margin-top: 1.5rem;
+}
+
+.container h4 {
+  margin-top: 1.2rem;
+}
+
+.container p {
+  margin-bottom: 0.8rem;
+}
