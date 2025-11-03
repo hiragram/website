@@ -141,6 +141,11 @@ div.post-body img {
   box-shadow: 0 2px 6px #00000020;
 }
 
+div.post-body figure {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
 div.post-body {
   margin-bottom: 40px;
 }
