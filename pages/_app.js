@@ -1,6 +1,12 @@
 import "../styles/global.css";
-import hljs from 'highlight.js';
-import 'highlight.js/styles/kimbie-dark.css';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-yaml';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-swift';
+import 'prismjs/components/prism-cmake';
+import 'prismjs/themes/prism-tomorrow.css';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -9,11 +15,11 @@ export default function App({ Component, pageProps }) {
     const router = useRouter();
 
     useEffect(() => {
-        const handleRouteChange = (url) => {
-            hljs.highlightAll();
+        const handleRouteChange = () => {
+            Prism.highlightAll();
         };
 
-        hljs.highlightAll();
+        Prism.highlightAll();
 
         router.events.on("routeChangeComplete", handleRouteChange);
 
