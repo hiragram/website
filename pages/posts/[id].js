@@ -16,18 +16,25 @@ export default function PostId({ post }) {
         HBBlogParts.start && HBBlogParts.start();
 
         // iframely scriptを読み込み
-        const script = document.createElement('script');
-        script.src = "//cdn.iframe.ly/embed.js";
-        document.body.appendChild(script);
+        const iframelyScript = document.createElement('script');
+        iframelyScript.src = "//cdn.iframe.ly/embed.js";
+        document.body.appendChild(iframelyScript);
 
-        // Twitter埋め込みを再読み込み
+        // Twitter埋め込みを読み込み/再読み込み
         if (window.twttr && window.twttr.widgets) {
+            // 既に読み込み済みなら再実行
             window.twttr.widgets.load();
+        } else {
+            // まだ読み込まれてなければスクリプトを追加
+            const twitterScript = document.createElement('script');
+            twitterScript.src = "https://platform.twitter.com/widgets.js";
+            twitterScript.async = true;
+            document.body.appendChild(twitterScript);
         }
 
-        // アンマウント時に一応scriptタグを消しておく
+        // アンマウント時にiframelyのscriptタグを消しておく
         return () => {
-          document.body.removeChild(script);
+          document.body.removeChild(iframelyScript);
         }
      }, [])
 
