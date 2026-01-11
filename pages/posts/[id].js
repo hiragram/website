@@ -15,10 +15,16 @@ export default function PostId({ post }) {
     useEffect(() => {
         HBBlogParts.start && HBBlogParts.start();
 
-        // scriptを読み込み
+        // iframely scriptを読み込み
         const script = document.createElement('script');
         script.src = "//cdn.iframe.ly/embed.js";
         document.body.appendChild(script);
+
+        // Twitter埋め込みを再読み込み
+        if (window.twttr && window.twttr.widgets) {
+            window.twttr.widgets.load();
+        }
+
         // アンマウント時に一応scriptタグを消しておく
         return () => {
           document.body.removeChild(script);
