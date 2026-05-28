@@ -10,10 +10,14 @@ For migrated posts, keep the original microCMS id. A Markdown post with the
 same id as a microCMS post overrides the microCMS version, so articles can be
 migrated one by one without changing published URLs.
 
+For new posts, omit id and use a readable filename. The public URL id is derived
+from the filename with the first 12 hex characters of sha256(filename without
+.md). This keeps filenames readable while making URLs look similar to existing
+microCMS articles.
+
 ## Frontmatter
 
     ---
-    id: original-microcms-id
     title: Article title
     publishedAt: 2026-05-28T18:00:00+09:00
     tags:
@@ -24,8 +28,13 @@ migrated one by one without changing published URLs.
     Write Markdown here.
     HTML is also allowed when an embed or old article needs exact rendering.
 
-id, title, and publishedAt are required. If id is omitted, the filename without
-.md is used.
+title and publishedAt are required. id is optional. Use id when migrating a
+microCMS article or when a URL must be pinned exactly. Otherwise, omit id and
+let the filename hash decide the URL.
+
+For example, content/posts/markdown-sample.md becomes:
+
+    /posts/4efb0c1728c6
 
 ## Export From microCMS
 

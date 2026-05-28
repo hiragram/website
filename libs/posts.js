@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import matter from 'gray-matter';
 import MarkdownIt from 'markdown-it';
 import { client } from '@/libs/client';
@@ -36,6 +37,14 @@ const normalizeDate = (value) => {
     return null;
 };
 
+const getFileSlug = (file) => file.replace(/\.md$/, '');
+
+const getHashedId = (file) => crypto
+    .createHash('sha256')
+    .update(getFileSlug(file))
+    .digest('hex')
+    .slice(0, 12);
+
 const getMarkdownPostFiles = () => {
     if (!fs.existsSync(postsDirectory)) {
         return [];
@@ -49,7 +58,7 @@ export const getMarkdownPosts = async () => {
         const fullPath = path.join(postsDirectory, file);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const { data, content } = matter(fileContents);
-        const id = data.id || file.replace(/\.md$/, '');
+        const id = data.id || getHashedId(file);
 
         if (!data.title) {
             throw new Error(`Missing title in ${fullPath}`);
