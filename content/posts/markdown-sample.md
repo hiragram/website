@@ -1,5 +1,4 @@
 ---
-id: 2d866397557b
 title: Markdown投稿サンプル
 publishedAt: 2026-05-28T18:30:00+09:00
 tags:
@@ -11,7 +10,7 @@ Markdownで書いた記事が、既存の記事一覧・詳細ページ・RSSに
 
 ## 確認したいこと
 
-- URLが /posts/2d866397557b になる
+- URLが /posts/4efb0c1728c6 になる
 - 一覧に公開日時とタグが出る
 - 詳細ページでMarkdown本文がHTMLとして表示される
 - RSSにも同じ記事が含まれる
