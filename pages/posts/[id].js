@@ -1,8 +1,7 @@
-import { client } from '@/libs/client';
+import { getAllPosts, getPostById } from '@/libs/posts';
 import Layout from '@/components/layout';
 import { formattedDate } from '@/utils/dateFormat';
 import { useRouter } from 'next/router';
-import { type } from 'os';
 import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect } from 'react';
@@ -127,32 +126,20 @@ export default function PostId({ post }) {
 }
 
 export const getStaticPaths = async () => {
-    let allPosts = [];
-    let offset = 0;
-    const limit = 100;
-    
-    while (true) {
-        const data = await client.get({
-            endpoint: "posts",
-            queries: { limit, offset }
-        });
-        
-        allPosts = [...allPosts, ...data.contents];
-        
-        if (data.contents.length < limit) {
-            break;
-        }
-        
-        offset += limit;
-    }
-    
+    const allPosts = await getAllPosts();
     const paths = allPosts.map((content) => `/posts/${content.id}`);
     return { paths, fallback: false };
 }
 
 export const getStaticProps = async (context) => {
     const id = context.params.id;
-    const data = await client.get({ endpoint: "posts", contentId: id });
+    const data = await getPostById(id);
+
+    if (!data) {
+        return {
+            notFound: true,
+        };
+    }
 
     return {
         props: {

@@ -1,10 +1,5 @@
 import RSS from 'rss';
-import { createClient } from 'microcms-js-sdk';
-
-export const client = createClient({
-    serviceDomain: 'hiragram',
-    apiKey: process.env.API_KEY!,
-});
+import { getAllPosts } from '@/libs/posts';
 
 const generateFeed = async (): Promise<string> => {
     const feed = new RSS({
@@ -14,13 +9,8 @@ const generateFeed = async (): Promise<string> => {
         language: 'ja',
     });
 
-    const data = await client.get({
-        endpoint: "posts",
-          queries: {
-            limit: 100,
-          },
-      });
-    data.contents
+    const posts = await getAllPosts();
+    posts
     .sort((a: any, b: any) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
     .forEach((post: any) => {
         feed.item({

@@ -45,6 +45,12 @@ export default function Resume({ resume }) {
 // }
 
 export const getStaticProps = async (context) => {
+    if (!client) {
+        return {
+            notFound: true,
+        };
+    }
+
     const data = await client.get({ endpoint: "resume"});
 
     return {
