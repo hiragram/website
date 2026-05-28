@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import { client } from '@/libs/client';
+import { getAllPosts } from '@/libs/posts';
 import Layout from '@/components/layout';
 import { formattedDate } from '@/utils/dateFormat';
 
@@ -102,24 +102,7 @@ export default function Home({ posts }) {
 }
 
 export const getStaticProps = async () => {
-    let allPosts = [];
-    let offset = 0;
-    const limit = 100;
-    
-    while (true) {
-        const data = await client.get({
-            endpoint: "posts", 
-            queries: { limit, offset }
-        });
-        
-        allPosts = [...allPosts, ...data.contents];
-        
-        if (data.contents.length < limit) {
-            break;
-        }
-        
-        offset += limit;
-    }
+    const allPosts = await getAllPosts();
 
     return {
         props: {
