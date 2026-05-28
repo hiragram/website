@@ -18,8 +18,18 @@ Markdownで書いた記事が、既存の記事一覧・詳細ページ・RSSに
 
 コードブロックの表示確認:
 
-    const source = 'markdown';
-    console.log('post source: ' + source);
+言語指定なし:
+
+```
+npm run build
+```
+
+TypeScript:
+
+```ts
+const source = 'markdown';
+console.log('post source: ' + source);
+```
 
 HTMLも必要なときは、そのまま書けます。
 
