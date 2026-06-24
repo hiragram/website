@@ -20,6 +20,30 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Writing Posts
+
+Add Markdown posts as `.md` files under `content/posts`.
+
+Each post requires `title` and `publishedAt` frontmatter. `tags` is optional.
+
+```md
+---
+title: Article title
+publishedAt: 2026-06-24T18:00:00+09:00
+tags:
+  - 技術
+  - AI
+---
+
+Write Markdown here.
+```
+
+Posts are published at `/posts/{id}`. If `id` is omitted, the URL id is generated
+from the filename. Set `id` explicitly when migrating an existing post or when
+the URL must stay fixed.
+
+See `docs/markdown-posts.md` for more details.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
